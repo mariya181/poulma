@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: smart_technology
+    env: python
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn smart_technology.wsgi:application"
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: smart_technology.settings
+      - key: PYTHON_VERSION
+        value: 3.13.5
+      - key: RENDER
+        value: true
